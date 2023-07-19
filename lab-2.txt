@@ -1,0 +1,200 @@
+1. Body Mass Index (BMI) is a measure of health on weight. It can be calculated by taking your weight in kilograms and dividing by the square of your height in meters.
+Write a program that prompts the user to enter a weight in pounds and height in inches and displays the BMI.(Note: - 1 pound = 0.45359237 Kg and 1 inch = 0.0254 meters)
+
+using System;
+namespace BMICalculator
+{
+public class Program
+{
+public static void Main(string[] args)
+{
+double _inchToMeter = 0.0254, _poundToKg = 0.45359237;
+Console.Write("Enter Height (in inch) : ");
+double height = Convert.ToDouble(Console.ReadLine());
+Console.Write("Enter Weight (in pound) : ");
+double weight = Convert.ToDouble(Console.ReadLine());
+double weightInKg = Math.Round(_poundToKg * weight,2);
+double heightInMeter = Math.Round(_inchToMeter * height,2);
+double BMI = Math.Round(weightInKg /
+(heightInMeter * heightInMeter), 2);
+Console.WriteLine("Weight: {0} (Kg), Height: {1} (m) ,BMI : {2}",
+weightInKg, heightInMeter, BMI);
+}
+}
+}
+
+
+
+2. The marks obtained by a student in 5 different subjects are input through the keyboard. The
+ student gets a grade as per the following rules:
+a. Percentage above or equals to 60-first grade
+b. Percentage between 50 to 59-second grade
+c. Percentage between 40 and 49-Third grade
+d. Percentage less than 40-poor Grade
+Write a program to assign the grade obtained by the student.
+
+
+using System;
+namespace Result
+{
+public class Program
+{
+public static void Main(string[] args)
+{
+Double[] marks = new Double[5];
+Double sum = 0;
+for (int i = 0; i < 5; i++)
+{
+Console.Write("Enter marks of subject "+(i+1)+" : ");
+marks[i] = Convert.ToDouble(Console.ReadLine());
+sum = sum + marks[i];
+}
+sum = Math.Round(sum / 5,2);
+Console.WriteLine("Average marks: {0}",sum);
+}
+}
+}
+
+
+
+3. Write a program to check prime number.
+
+using System;
+public class PrimeNumberExample
+{
+public static void Main(string[] args)
+{
+int n, i, m = 0, flag = 0;
+Console.Write("Enter the Number to check Prime: ");
+n = Convert.ToInt32(Console.ReadLine());
+m = n / 2;
+for (i = 2; i <= m; i++)
+{
+if (n % i == 0)
+{
+Console.Write("Number is not Prime.");
+flag = 1;
+break;
+}
+}
+if (flag == 0)
+Console.Write("Number is Prime.");
+}
+}
+
+
+4. Write a program to find out whether a given year is a leap year or not.
+
+using System;
+public class Exercise4
+{
+public static void Main()
+{
+int year;
+Console.Write("Input an year : ");
+year = Convert.ToInt32(Console.ReadLine());
+if ((year % 400) == 0)
+Console.WriteLine("{0} is a leap year.\n", year);
+else if ((year % 100) == 0)
+Console.WriteLine("{0} is not a leap year.\n", year);
+else if ((year % 4) == 0)
+Console.WriteLine("{0} is a leap year.\n", year);
+else
+Console.WriteLine("{0} is not a leap year.\n", year);
+}
+}
+
+
+
+5. Write a program to print Fibonacci series.
+
+
+using System;
+public class Fibonacci
+{
+public static void Main(string[] args)
+{
+int n1 = 0, n2 = 1, n3, i, number;
+Console.Write("Enter the number of elements: ");
+number = Convert.ToInt32(Console.ReadLine());
+Console.Write(n1 + " " + n2 + " ");
+for (i = 2; i < number; ++i)
+{
+n3 = n1 + n2;
+Console.Write(n3 + " ");
+n1 = n2;
+n2 = n3;
+}
+}
+}
+
+
+
+6. Write a program that takes a number as input and displays its equivalent binary form.
+
+using System;
+public class Conversion
+{
+public static void Main(string[] args)
+{
+int n, i;
+int[] a = new int[10];
+Console.Write("Enter the number to convert: ");
+n = int.Parse(Console.ReadLine());
+for (i = 0; n > 0; i++)
+{
+a[i] = n % 2;
+n = n / 2;
+}
+Console.Write("Binary of the given number= ");
+for (i = i - 1; i >= 0; i--)
+{
+Console.Write(a[i]);
+}
+}
+}
+
+
+7. Write a program to calculate the nPr. (nPr = n! / (n - r)!)
+
+using System;
+class Npr
+{
+static int CalculateFactorial(int n)
+{
+int fact = 1;
+for (int i = 2; i <= n; i++)
+{
+fact = fact * i;
+}
+return fact;
+}
+static int CalculateNpr(int n, int r)
+{
+int npr = 0;
+int fact1 = 0;
+int fact2 = 0;
+fact1 = CalculateFactorial(n);
+fact2 = CalculateFactorial(n - r);
+npr = fact1 / fact2;
+return npr;
+}
+static void Main(string[] args)
+{
+int npr = 0;
+int n = 0;
+int r = 0;
+Console.Write("Enter the value of 'n': ");
+n = int.Parse(Console.ReadLine());
+Console.Write("Enter the value of 'r': ");
+r = int.Parse(Console.ReadLine());
+npr = CalculateNpr(n, r);
+Console.WriteLine("Npr: " + npr);
+}
+}
+
+
+
+
+
+

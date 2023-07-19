@@ -1,0 +1,254 @@
+1. Write a program to print your name, address, contact number & city.
+
+
+using System;
+class Program
+{
+public static void Main(String[] args)
+{
+Console.WriteLine("Name: Raj");
+Console.WriteLine("Address: 150ft Ring Road, Rajkot");
+Console.WriteLine("Contact: 7984851288");
+Console.WriteLine("City: Rajkot");
+}
+}
+
+
+2. Write a program to get two numbers from user and print those two numbers.
+
+
+using System;
+class AddTwoNumbers
+{
+public static void Main()
+{
+Console.Write("Enter first number: ");
+int a = Convert.ToInt32(Console.ReadLine());
+Console.Write("Enter second number: ");
+int b = Convert.ToInt32(Console.ReadLine());
+int sum = a + b;
+Console.WriteLine("Addition of " + a + " and " + b + " is = " + sum);
+}
+}
+
+
+3. Write program to prompt a user to input his/her name and country name and then output will be shown as given: Hello <yourname> from country <countryname>
+
+using System;
+class Program
+{
+public static void Main()
+{
+Console.Write("Enter your name: ");
+String Name = Console.ReadLine();
+Console.Write("Enter country name: ");
+String Country = Console.ReadLine();
+Console.WriteLine("Hello " + Name + " from country " + Country);
+}
+}
+
+
+
+4. Write a program to calculate the size of the area in square-feet based on Specified length and width.
+
+using System;
+class Area
+{
+public static void Main()
+{
+Double lengthInFeets = 0, widthInFeets = 0, plotArea = 0;
+Console.Write("Enter length in feets: ");
+lengthInFeets = Convert.ToInt32(Console.ReadLine());
+Console.Write("Enter width in feet:");
+widthInFeets = Convert.ToInt32(Console.ReadLine());
+plotArea = lengthInFeets * widthInFeets;
+Console.WriteLine("Area is " + plotArea + " square feet");
+}
+}
+
+
+5. Write a program to calculate area of Square, Rectangle and Circle.
+
+using System;
+class Area
+{
+public static void Main()
+{
+Console.Write("Enter side of Square:");
+Double sideOfSquare = Convert.ToDouble(Console.ReadLine());
+Console.Write("Enter width of Rectangle :");
+Double widthOfRectangle = Convert.ToDouble(Console.ReadLine());
+Console.Write("Enter length of Rectangle :");
+Double lengthOfRectangle = Convert.ToDouble(Console.ReadLine());
+Console.Write("Enter radius of Circle :");
+Double radiusOfCircle = Convert.ToDouble(Console.ReadLine());
+Double squareArea = sideOfSquare * sideOfSquare;
+Double rectangleArea = widthOfRectangle * lengthOfRectangle;
+Double circleArea = Math.Round(Math.PI * radiusOfCircle * radiusOfCircle,2);
+Console.WriteLine("Area of Square: {0}", squareArea);
+Console.WriteLine("Area of Rectangle: {0}", rectangleArea);
+Console.WriteLine("Area of Circle: {0}", circleArea);
+}
+}
+
+
+
+6. Write a program to calculate Celsius to Fahrenheit and vice-versa using function.
+
+using System;
+class Program
+{
+static double convertToCelsius(double ferTemp)
+{
+double cTemp = Math.Round((ferTemp - 32) * 5 / 9, 2);
+return cTemp;
+}
+static double convertToFahrenheit(double celTemp)
+{
+double fTemp = Math.Round((9 * celTemp) / 5 + 32,2);
+return fTemp;
+}
+static void Main(string[] args)
+{
+double celTemp = 0, ferTemp = 0;
+Console.WriteLine("Enter 1 for Fahrenheit to Celcius: ");
+Console.WriteLine("Enter 2 for Celcius to Fahrenheit: ");
+Console.Write("Enter choice: ");
+int choice = Convert.ToInt32(Console.ReadLine());
+switch (choice)
+{
+case 1:
+Console.Write("Enter the value of temperature in Fahrenheite(°F): ");
+ferTemp = Convert.ToInt32(Console.ReadLine());
+celTemp = convertToCelsius(ferTemp);
+Console.WriteLine("Celsius temperature is(°C) : " + celTemp);
+break;
+case 2:
+Console.Write("Enter the value of temperature in Celsius(°C): ");
+celTemp = Convert.ToInt32(Console.ReadLine());
+ferTemp = convertToFahrenheit(celTemp);
+Console.WriteLine("Fahrenheite temperature is(°F) : "+ ferTemp);
+break;
+default: Console.Write("Invalid Choice ...");
+break;
+}
+}
+}
+
+
+7. Write a program to find out Simple Interest using function. (I = PRN/100)
+
+using System;
+namespace Interest
+{
+class Program
+{
+static void Main(string[] args)
+{
+int year;
+double princamt, rate, interest, total_amt;
+Console.Write("Enter The Loan Amount : ");
+princamt = Convert.ToDouble(Console.ReadLine());
+Console.Write("Enter The Number of Years : ");
+year = Convert.ToInt32(Console.ReadLine());
+Console.Write("Enter the Rate Of Interest : ");
+rate = Convert.ToDouble(Console.ReadLine());
+interest = princamt * year * rate / 100;
+total_amt = princamt + interest;
+Console.WriteLine("Total Amount : {0}", total_amt);
+}
+}
+}
+
+
+
+8. Write a program to create a Simple Calculator for two numbers (Addition, Multiplication,Subtraction, Division) [Also using if…else & Switch Case]
+
+using System;
+class Program
+{
+static void Main(string[] args)
+{
+int Num1, Num2, result;
+char option;
+Console.Write("Enter the First Number : ");
+Num1 = Convert.ToInt32(Console.ReadLine());
+Console.Write("Enter the Second Number : ");
+Num2 = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Main Menu");
+Console.WriteLine("1. Addition");
+Console.WriteLine("2. Subtraction");
+Console.WriteLine("3. Multiplication");
+Console.WriteLine("4. Division");
+Console.Write("Enter the Operation you want to perform : ");
+option = Convert.ToChar(Console.ReadLine());
+switch (option)
+{
+case '1':
+result = Num1 + Num2;
+Console.WriteLine("The result of Addition is: {0}", result);
+break;
+case '2':
+result = Num1 - Num2;
+Console.WriteLine("The result of Subtraction is: {0}",result);
+break;
+case '3':
+result = Num1 * Num2;
+Console.WriteLine("The result of Multiplication is:{0}",result);
+break;
+case '4':
+result = Num1 / Num2;
+Console.WriteLine("The result of Division is : {0}", result);
+break;
+default:
+Console.WriteLine("Invalid Option");
+break;
+}
+}
+}
+
+
+9. Write a program to find maximum numbers from given 3 numbers.
+
+using System;
+class Program
+{
+static void Main(string[] args)
+{
+Int32 max = 0;
+Console.Write("Enter No 1: ");
+Int32 no1 = Convert.ToInt32(Console.ReadLine());
+Console.Write("Enter No 2: ");
+Int32 no2 = Convert.ToInt32(Console.ReadLine());
+Console.Write("Enter No 3: ");
+Int32 no3 = Convert.ToInt32(Console.ReadLine());
+max = no1 > no2 ? (no1 > no3 ? no1 : no3) : (no2 > no3 ? no2 : no3);
+Console.WriteLine("Max is: {0}", max);
+}
+}
+
+
+10. Write a program to Swapping without using third variable.
+
+using System;
+class Program
+{
+static void Main(string[] args)
+{
+Console.Write("Enter No 1: ");
+Int32 no1 = Convert.ToInt32(Console.ReadLine());
+Console.Write("Enter No 2: ");
+Int32 no2 = Convert.ToInt32(Console.ReadLine());
+no1 = no1 + no2;
+no2 = no1 - no2;
+no1 = no1 - no2;
+Console.WriteLine("No1: {0}, No2: {1}", no1, no2);
+}
+}
+
+
+
+
+
+
+

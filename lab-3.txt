@@ -1,0 +1,432 @@
+1. Write a program to create a class named Candidate with ID, Name, Age, Weight and Height as data members and also create a member functions like GetCandidateDetails() and
+DisplayCandidateDetails().
+
+using System;
+class Candidate
+{
+int Id, Age;
+String Name;
+double Weight, Height;
+void GetCandidateDetails()
+{
+Console.Write("Enter Id : ");
+this.Id = int.Parse(Console.ReadLine());
+Console.Write("Enter Name : ");
+this.Name = Console.ReadLine();
+Console.Write("Enter Age : ");
+this.Age = int.Parse(Console.ReadLine());
+Console.Write("Enter Weight : ");
+this.Weight = double.Parse(Console.ReadLine());
+Console.Write("Enter Height : ");
+this.Height = double.Parse(Console.ReadLine());
+}
+void DiplayCandidateDetails()
+{
+Console.WriteLine("ID : " + this.Id);
+Console.WriteLine("Name : " + this.Name);
+Console.WriteLine("Age : " + this.Age);
+Console.WriteLine("Weight : " + this.Weight);
+Console.WriteLine("Height : " + this.Height);
+}
+}
+public class Program
+{
+public static void Main()
+{
+Candidate c = new Candidate();
+c.GetCandidateDetails();
+Console.WriteLine("\n----------Candidate Details-----------\n");
+c.DiplayCandidateDetails();
+Console.ReadLine();
+}
+}
+
+
+2. Write a program to create a class Staff having data members as Name, Department, Designation,Experience & Salary. Accept this data for 5 different staffs and display 
+only names & salary of those staff who are HOD.
+
+using System;
+namespace Staff
+{
+class Staff
+{
+string Name, Post;
+public void getdata()
+{
+Console.Write("Enter Name: ");
+Name = Console.ReadLine();
+Console.Write("Enter Post: ");
+Post = Console.ReadLine();
+}
+public void display()
+{
+Console.WriteLine("Name: {0}, Post: {1}", Name, Post);
+}
+public string getPost()
+{
+return Post;
+}
+}
+class program
+{
+static void Main(string[] args)
+{
+Staff[] objStaff = new Staff[5];
+int i;
+for (i = 0; i < 5; i++)
+{
+objStaff[i] = new Staff();
+objStaff[i].getdata();
+}
+for (i = 0; i < 5; i++)
+{
+if (objStaff[i].getPost() == "HOD")
+objStaff[i].display();
+}
+}
+}
+}
+
+
+
+3. Write a pogram to Create a class Bank_Account with Account_No, Email, User_Name,Account_Type and Account_Balance as data members. Also create a Member function
+GetAccountDetails() & DisplayAccountDetails().
+
+
+using System;
+public class Program
+{
+public static void Main()
+{
+Bank_Account bankAccount = new Bank_Account();
+bankAccount.GetAccountDetails();
+bankAccount.DisplayAccountDetails();
+}
+}
+class Bank_Account
+{
+int AccountNo;
+string Email, UserName, AccountType;
+double AccountBalance;
+public void GetAccountDetails()
+{
+Console.WriteLine("Please enter Account number : ");
+AccountNo = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Please enter Email : ");
+Email = Console.ReadLine();
+Console.WriteLine("Please enter Username : ");
+UserName = Console.ReadLine();
+Console.WriteLine("Please enter Account type : ");
+AccountType = Console.ReadLine();
+Console.WriteLine("Please enter Account balance : ");
+AccountBalance = Convert.ToDouble(Console.ReadLine());
+}
+public void DisplayAccountDetails()
+{
+Console.WriteLine("Account number : {0}", AccountNo);
+Console.WriteLine("Email : {0}", Email);
+Console.WriteLine("Username : {0}", UserName);
+Console.WriteLine("Account type : {0}", AccountType);
+Console.WriteLine("Account balance : {0}", AccountBalance);
+}
+}
+
+
+
+4. Write a program with following specifications:
+Class Name: Student
+Data Members: Enrollment_No, Student_Name, Semester, CPI and SPI
+Get Students Details using constructor and DisplayStudentDetails() using member function.
+
+
+using System;
+class Student
+{
+int EnrollmentNo, Sem;
+string StudentName;
+double CPI, SPI;
+public Student()
+{
+Console.WriteLine("Please enter Enrollment Number : ");
+EnrollmentNo = int.Parse(Console.ReadLine());
+Console.WriteLine("Please enter Student's Name : ");
+StudentName = Console.ReadLine();
+Console.WriteLine("Please enter Sem : ");
+Sem = int.Parse(Console.ReadLine());
+Console.WriteLine("Please enter CPI : ");
+CPI = double.Parse(Console.ReadLine());
+Console.WriteLine("Please enter SPI : ");
+SPI = double.Parse(Console.ReadLine());
+}
+public void displayStudentsDetails()
+{
+Console.WriteLine("\n ----- Student Details ----- \n");
+Console.WriteLine("Enrollment Number : {0}", EnrollmentNo);
+Console.WriteLine("Student's Name : {0}", StudentName);
+Console.WriteLine("Sem : {0}", Sem);
+Console.WriteLine("CPI : {0}", CPI);
+Console.WriteLine("SPI : {0}", SPI);
+}
+}
+class Program
+{
+public static void Main()
+{
+Student st = new Student();
+st.displayStudentsDetails();
+}
+}
+
+
+5. Write a program to Define a class Salary which will contain member variable Basic, TA, DA, HRA.
+Write a program using Constructor with default values for DA and HRA and calculate the salary
+of employee.
+
+
+using System;
+public class Prorgram
+{
+public static void Main()
+{
+Salary salary = new Salary();
+salary.Display();
+}
+}
+class Salary
+{
+double Basic, TA, DA, HRA, GrossSalary;
+public Salary()
+{
+DA = 3000;
+HRA = 5000;
+Console.WriteLine("Please enter basic salary : ");
+this.Basic = Convert.ToDouble(Console.ReadLine());
+Console.WriteLine("Please enter TA : ");
+this.TA = Convert.ToDouble(Console.ReadLine());
+GrossSalary = Basic + TA + HRA + DA;
+}
+public void Display()
+{
+Console.WriteLine("\nBasic salary : " + Basic);
+Console.WriteLine("Dearness allowence : " + DA);
+Console.WriteLine("Housing rent allowence : " + HRA);
+Console.WriteLine("Travelling allowence : " + TA);
+Console.WriteLine("Gross Salary : " + GrossSalary);
+}
+}
+
+
+6. Write a program to Define a class Distance have data members dist1, dist2, dist3. Initialize the
+two data members using constructor and store their addition in third data member using
+function and display addition.
+
+using System;
+public class Program
+{
+public static void Main()
+{
+Console.WriteLine("Please enter distance 1 : ");
+double dist1 = Convert.ToDouble(Console.ReadLine());
+Console.WriteLine("Please enter distance 2 : ");
+double dist2 = Convert.ToDouble(Console.ReadLine());
+Distance d = new Distance(dist1, dist2);
+d.Sum();
+d.Display();
+}
+}
+public class Distance
+{
+double dist1, dist2, dist3;
+public Distance(double dist1, double dist2)
+{
+this.dist1 = dist1;
+this.dist2 = dist2;
+}
+public void Sum()
+{
+this.dist3 = this.dist1+this.dist2;
+}
+public void Display()
+{
+Console.WriteLine("Answer : {0}",this.dist3);
+}
+}
+
+
+
+7. Write a program to calculate area of a Rectangle using constructor.
+
+using System;
+class AreaOfRectangle
+{
+double length, breadth;
+public AreaOfRectangle(double length, double breadth)
+{
+this.length = length;
+this.breadth = breadth;
+}
+public double CalculateArea()
+{
+return this.length * this.breadth;
+}
+public static void Main(String[] args)
+{
+Console.Write("Enter lenght : ");
+double length = double.Parse(Console.ReadLine());
+Console.Write("Enter breadth : ");
+double breadth = double.Parse(Console.ReadLine());
+AreaOfRectangle obj = new AreaOfRectangle(length, breadth);
+Console.WriteLine("Area of Rectangel is : " + obj.CalculateArea().ToString());
+}
+}
+
+
+
+
+8. Create a class Furniture with material, price as data members. Create another class Table with
+Height , surface_area as data members. Write a program to implement single inheritance.
+
+using System;
+class Furniture
+{
+String Material;
+Double Price;
+public void GetData()
+{
+Console.Write("Enter Material : ");
+Material = Console.ReadLine();
+Console.Write("Enter Price : ");
+Price = Convert.ToDouble(Console.ReadLine());
+}
+public void ShowData()
+{
+Console.WriteLine("Material : " + Material);
+Console.WriteLine("Price : " + Price);
+}
+}
+class Table : Furniture
+{
+int Height, Surface_Area;
+public void GetData()
+{
+base.GetData();
+Console.Write("Enter height: ");
+Height = Convert.ToInt32(Console.ReadLine());
+Console.Write("Enter surface area: ");
+Surface_Area = Convert.ToInt32(Console.ReadLine());
+}
+public void ShowData()
+{
+base.ShowData();
+Console.WriteLine("Height : " + Height);
+Console.WriteLine("Surface Area : " + Surface_Area);
+}
+}
+class Program
+{
+static void Main(string[] args)
+{
+Table objTable = new Table();
+objTable.GetData();
+objTable.ShowData();
+}
+}
+
+
+
+9. Write a program for implementing single inheritance which creates one class Account_Details
+for getting account information and another class Interest for calculating and displaying total
+interest from the data inserted from account details.
+
+using System;
+class Account_Details
+{
+public int AccountNo;
+public string UserName;
+public double Principle, RateOfInerest, TimePeriod;
+public void GetAccountDetails()
+{
+Console.WriteLine("Please enter Account No : ");
+AccountNo = int.Parse(Console.ReadLine());
+Console.WriteLine("Please enter Username : ");
+UserName = Console.ReadLine();
+Console.WriteLine("Please enter Principle : ");
+Principle = double.Parse(Console.ReadLine());
+Console.WriteLine("Please enter Rate : ");
+RateOfInerest = double.Parse(Console.ReadLine());
+Console.WriteLine("Please enter Time : ");
+TimePeriod = double.Parse(Console.ReadLine());
+}
+}
+class Interest : Account_Details
+{
+public Interest()
+{
+GetAccountDetails();
+}
+public void DisplayInterest()
+{
+Console.WriteLine("Simple Interest: {0}",((Principle * RateOfInerest *
+TimePeriod) / 100));
+}
+}
+class Program
+{
+public static void Main(string[] args)
+{
+Interest interest = new Interest();
+interest.DisplayInterest();
+}
+}
+
+
+
+10
+
+using System;
+interface Gross
+{
+public Double Gross_Salary();
+}
+class Employee
+{
+public string Name;
+public double Basic_Salary;
+public void Basic_Sal()
+{
+Console.Write("Please enter Name: ");
+this.Name = Console.ReadLine();
+Console.Write("Please enter Basic Salary: ");
+this.Basic_Salary = Convert.ToDouble(Console.ReadLine());
+}
+}
+class Salary : Employee, Gross
+{
+double HRA, TA, DA;
+public Salary()
+{
+Basic_Sal();
+Console.Write("Please Enter TA: ");
+TA = Convert.ToDouble(Console.ReadLine());
+Console.Write("Please Enter DA: ");
+DA = Convert.ToDouble(Console.ReadLine());
+Console.Write("Please Enter HRA: ");
+HRA = Convert.ToDouble(Console.ReadLine());
+}
+public Double Gross_Salary()
+{
+return (Basic_Salary + HRA + TA + DA);
+}
+public void Display_Salary()
+{
+Console.WriteLine("Name: {0}, Salary : {1}", Name, Gross_Salary());
+}
+}
+class Program
+{
+public static void Main(string[] args)
+{
+Salary s = new Salary();
+s.Display_Salary();
+}
+}

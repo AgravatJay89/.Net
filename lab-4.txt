@@ -1,0 +1,338 @@
+1. Write a program to Create a divide by zero exception and handle it.
+
+using System;
+class Program
+{
+static void Main()
+{
+try
+{
+Console.Write("Enter no1: ");
+int no1 = Convert.ToInt32(Console.ReadLine());
+Console.Write("Enter no2: ");
+int no2 = Convert.ToInt32(Console.ReadLine());
+int result = no1/no2;
+Console.WriteLine(result);
+}
+catch (DivideByZeroException e)
+{
+Console.Write(e.Message);
+}
+}
+}
+
+
+2. Write a program that reads 5 numbers from user. Demonstrate concept of IndexOutOfRange Exception.
+
+using System;
+class Program
+{
+static void Main()
+{
+try
+{
+int[] arr = new int[5];
+for (int i = 0; i < 5; i++)
+{
+Console.Write("Enter no {0}: ", (i + 1));
+arr[i] = Convert.ToInt32(Console.ReadLine());
+}
+for (int i = 0; i <= 5; i++)
+{
+Console.WriteLine("{0} ", arr[i]);
+}
+}
+catch (IndexOutOfRangeException e)
+{
+Console.Write(e.Message);
+}
+}
+}
+
+
+3. Write a program to accept a number from the user and throw an exception if the number is not an even number.
+
+using System;
+namespace ExceptionHandlingExample
+{
+class NotEvenException : Exception
+{
+public NotEvenException(string msg) : base(msg)
+{
+}
+}
+class Program
+{
+static void Main(string[] args)
+{
+int num;
+try
+{
+Console.Write("Enter a number: ");
+num = Convert.ToInt32(Console.ReadLine());
+if ((num % 2) != 0)
+throw new NotEvenException("Not an even number ");
+else
+Console.WriteLine("Its even number ");
+}
+catch (NotEvenException e)
+{
+Console.WriteLine(e.Message);
+}
+}
+}
+}
+
+
+
+4. Write a program to create an abstract class Sum having abstract methods SumOfTwo(int a, int b)
+ and SumOfThree(int a, int b,int c). Create another class Calculate which extends the abstract class
+ and implements the abstract methods.
+
+
+using System;
+public abstract class Sum
+{
+public abstract int sumOfTwo(int n1, int n2);
+public abstract int sumOfThree(int n1, int n2, int n3);
+}
+public class Program : Sum
+{
+public override int sumOfTwo(int a, int b)
+{
+return a + b;
+}
+public override int sumOfThree(int a, int b, int c)
+{
+return a + b + c;
+}
+public static void Main(String[] args)
+{
+Sum s = new Program();
+Console.WriteLine("M1:" + s.sumOfTwo(10, 20));
+Console.WriteLine("M2:" + s.sumOfThree(10, 20, 30));
+}
+}
+
+
+
+5. Write a program to create interface Calculate. In this interface we have two member functions
+ Addition() and Subtraction(). Implements this interface in another class named Result.
+
+using System;
+interface Calculate
+{
+public int Addition(int a, int b);
+public int Substraction(int a, int b);
+}
+class Result : Calculate
+{
+public int Addition(int a, int b)
+{
+return a + b;
+}
+public int Substraction(int a, int b)
+{
+return a - b;
+}
+}
+class Program
+{
+public static void Main(string[] args)
+{
+Console.Write("Enter 1st number : ");
+int a = Convert.ToInt32(Console.ReadLine());
+Console.Write("Enter 2nd number : ");
+int b = Convert.ToInt32(Console.ReadLine());
+Result obj = new Result();
+Console.WriteLine("Addition of two numbers : " + obj.Addition(a, b));
+Console.WriteLine("Substraction of two numbers : "
++obj.Substraction(a, b));
+}
+}
+
+
+
+6. Write a program to create interface named Shape. In this interface, we have three methods
+ Circle(), Triangle() and Square() which calculates area of Circle, Triangle and Square respectively.
+ Implement Shape interface.
+
+
+using System;
+namespace MyApplication
+{
+interface Shape
+{
+double Circle(double r);
+double Triangle(double b, double h);
+double Square(double l);
+}
+class Program : Shape
+{
+public double Circle(double r)
+{
+return Math.Round(Math.PI * r * r);
+}
+public double Triangle(double b, double h)
+{
+return Math.Round((b * h) / 2);
+}
+public double Square(double l)
+{
+return (l * l);
+}
+static void Main(string[] args)
+{
+Program myObj = new Program();
+Console.WriteLine("Area of Circle: {0}",myObj.Circle(10));
+Console.WriteLine("Area of Triangle: {0}",myObj.Triangle(20, 10));
+Console.WriteLine("Area of Square: {0}", myObj.Square(15));
+}
+}
+}
+
+
+
+7. Write program showing use of common methods of String class.
+
+using System;
+namespace MyConsoleApp
+{
+class Program
+{
+static void Main(string[] args)
+{
+string firstname = "Steven Clark";
+string lastname = "Clark";
+// Make String Clone
+Console.WriteLine(firstname.Clone());
+//Compare two string value and returns 0 for true and 1 for false
+Console.WriteLine(firstname.CompareTo(lastname));
+//Check whether specified value exists or not in string
+Console.WriteLine(firstname.Contains("ven"));
+//Check whether specified value is the last character of string
+Console.WriteLine(firstname.EndsWith("n"));
+//Compare two string and returns true and false
+Console.WriteLine(firstname.Equals(lastname));
+//Returns HashCode of String
+Console.WriteLine(firstname.GetHashCode());
+//Returns type of string
+Console.WriteLine(firstname.GetType());
+//Returns type of string
+Console.WriteLine(firstname.GetTypeCode());
+//Returns the first index position of specified value the first
+index position of specified value
+Console.WriteLine(firstname.IndexOf("e"));
+//Covert string into lower case
+Console.WriteLine(firstname.ToLower());
+//Convert string into Upper case
+Console.WriteLine(firstname.ToUpper());
+//Insert substring into string
+Console.WriteLine(firstname.Insert(0, "Hello"));
+//Check Whether string is in Unicode normalization from C
+Console.WriteLine(firstname.IsNormalized());
+//Returns the last index position of specified value
+Console.WriteLine(firstname.LastIndexOf("e"));
+//Returns the Length of String
+Console.WriteLine(firstname.Length);
+//Deletes all the characters from begining to specified index.
+Console.WriteLine(firstname.Remove(5));
+// Replace the character
+Console.WriteLine(firstname.Replace('e', 'i'));
+//Split the string based on specified value
+string[] split = firstname.Split(new char[] { 'e' });
+Console.WriteLine(split[0]);
+Console.WriteLine(split[1]);
+Console.WriteLine(split[2]);
+//Check wheter first character of string is same as specified value
+Console.WriteLine(firstname.StartsWith("S"));
+//Returns substring
+Console.WriteLine(firstname.Substring(2, 5));
+//Converts an string into char array.
+Console.WriteLine(firstname.ToCharArray());
+//It removes starting and ending white spaces from string.
+Console.WriteLine(firstname.Trim());
+}
+}
+}
+
+
+
+8. Write a program to Replace lower case characters to upper case and Vice-versa.
+
+using System;
+public class Prorgram
+{
+public static void Main()
+{
+string str1;
+char[] arr1;
+int l, i;
+l = 0;
+char ch;
+Console.Write("Enter the string : ");
+str1 = Console.ReadLine();
+l = str1.Length;
+arr1 = str1.ToCharArray(0, l);
+Console.Write("\nAfter conversion, the string is : ");
+for (i = 0; i < l; i++)
+{
+ch = arr1[i];
+if (Char.IsLower(ch))
+Console.Write(Char.ToUpper(ch));
+else
+Console.Write(Char.ToLower(ch));
+}
+}
+}
+
+
+
+9. Write a program to find the longest word in a string.
+
+using System;
+public class Program
+{
+public static void Main()
+{
+string line = "Write a program to find the longest word in a string.";
+Console.WriteLine(line);
+string[] words = line.Split(new[] { " " }, StringSplitOptions.None);
+string word = "";
+int ctr = 0;
+foreach (String s in words)
+{
+if (s.Length > ctr)
+{
+word = s;
+ctr = s.Length;
+}
+}
+Console.WriteLine("Longest word: {0}", word);
+}
+}
+
+
+
+
+10. Write a program to change the case of entered character.
+
+using System;
+class CharacterChange
+{
+public static void Main(string[] args)
+{
+Console.Write("Enter a character : ");
+char c = Console.ReadLine().ToCharArray()[0];
+char ans;
+if (Char.IsUpper(c))
+ans = Char.ToLower(c);
+else
+ans = Char.ToUpper(c);
+Console.WriteLine("Changed case of character : " + ans);
+}
+}
+
+
+
+

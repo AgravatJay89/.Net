@@ -1,0 +1,239 @@
+1. Create an ArrayList for StudentName and perform following operations:
+a. Add() - To Add new student in list
+b. Remove() - To Remove Student with specified index
+c. RemoveRange() - To Remove student with specified range.
+d. Clear() - To clear all the student from the list
+
+using System;
+using System.Collections;
+class Program
+{
+ArrayList a1 = new ArrayList();
+public void DisplayElements()
+{
+if (a1.Count > 0)
+{
+foreach (object i in a1)
+{
+Console.Write("\t"+i.ToString());
+}
+}
+else
+Console.WriteLine("No Element Found !!");
+}
+public void ArrListMethod()
+{
+int Flag = 0;
+while (Flag == 0)
+{
+Console.WriteLine("\nSelect Operation to Perform on Array List");
+Console.WriteLine("1.Add");
+Console.WriteLine("2.Remove");
+Console.WriteLine("3.Remove Range");
+Console.WriteLine("4.Clear");
+Console.WriteLine("5.Exit");
+int ch = Convert.ToInt32(Console.ReadLine());
+switch (ch)
+{
+case 1:
+Console.Write("Enter Element : ");
+int n = Convert.ToInt32(Console.ReadLine());
+a1.Add(n);
+DisplayElements();
+break;
+case 2:
+Console.Write("Enter Element : ");
+int no = Convert.ToInt32(Console.ReadLine());
+if (a1.Count > 0)
+a1.Remove(no);
+DisplayElements();
+break;
+case 3:
+Console.Write("Enter Index : ");
+int n1 = Convert.ToInt32(Console.ReadLine());
+Console.Write("Enter Count of Elements: ");
+int n2 = Convert.ToInt32(Console.ReadLine());
+if (a1.Count > 0)
+a1.RemoveRange(n1, n2);
+DisplayElements();
+break;
+case 4:
+a1.Clear();
+DisplayElements();
+break;
+case 5:
+Flag = 1;
+break;
+default:
+break;
+}
+}
+}
+}
+class Program
+{
+public static void Main(string[] args)
+{
+Program_ArryList a = new Program_ArryList();
+a.ArrListMethod();
+}
+}
+
+
+
+2. Create a List for StudentName and perform following operations:
+a. Add() - To Add new student in list
+b. Remove() - To Remove Student with specified index
+c. RemoveRange() - To Remove student with specified range.
+d. Clear() - To clear all the student from the list
+
+using System;
+using System.Collections.Generic;
+class Program
+{
+public static void Main()
+{
+List<string> studentNames = new List<string>();
+// 1. Add()
+studentNames.Add("John");
+studentNames.Add("Alice");
+studentNames.Add("Bob");
+studentNames.Add("Emily");
+Console.WriteLine("Student Names:");
+PrintList(studentNames);
+// 2. Remove()
+int indexToRemove = 2;
+studentNames.RemoveAt(indexToRemove);
+Console.WriteLine("\nStudent Names after removing student at index
+{0}", indexToRemove);
+PrintList(studentNames);
+// 3. RemoveRange()
+int rangeStartIndex = 0;
+int rangeCount = 2;
+studentNames.RemoveRange(rangeStartIndex, rangeCount);
+Console.WriteLine($"\nStudent Names after removing range from index
+ {rangeStartIndex} to {rangeStartIndex + rangeCount - 1}:");
+PrintList(studentNames);
+// 4. Clear()
+studentNames.Clear();
+Console.WriteLine("\nStudent Names after clearing the list:");
+PrintList(studentNames);
+}
+static void PrintList(List<string> list)
+{
+if (list.Count > 0)
+foreach (object item in list)
+{
+Console.WriteLine(item);
+}
+else
+Console.WriteLine("No elements found...");
+}
+}
+
+
+
+3. Create a Stack which takes integer values and perform following operations:
+a. Push() - To Add new item in stack
+b. Pop() - To Remove item from the stack
+c. Peek() – To Return the top item from the stack.
+d. Contains() - To Checks whether an item exists in the stack or not.
+e. Clear() - To clear items from stack
+
+using System;
+using System.Collections.Generic;
+class Program
+{
+static void Main()
+{
+Stack<int> stack = new Stack<int>();
+// 1. Push()
+stack.Push(10);
+stack.Push(20);
+stack.Push(30);
+stack.Push(40);
+Console.WriteLine("Stack:");
+PrintStack(stack);
+// 2. Pop()
+int poppedItem = stack.Pop();
+Console.WriteLine("\nPopped Item: {0}", poppedItem);
+Console.WriteLine("Stack after popping an item:");
+PrintStack(stack);
+// 3. Peek()
+int topItem = stack.Peek();
+Console.WriteLine("\nTop Item: {0}", topItem);
+// 4. Contains()
+int itemToFind = 30;
+bool containsItem = stack.Contains(itemToFind);
+Console.WriteLine("\nStack contains {0}?{1}",itemToFind,containsItem);
+itemToFind = 50;
+containsItem = stack.Contains(itemToFind);
+Console.WriteLine("Stack contains {0}? {1}",itemToFind, containsItem);
+// 5. Clear()
+stack.Clear();
+Console.WriteLine("Stack Clear");
+}
+static void PrintStack(Stack<int> stack)
+{
+foreach (var item in stack)
+{
+Console.WriteLine(item);
+}
+}
+}
+
+
+
+4. Create a Queue which takes integer values and perform following operations:
+a. Enqueue() - Adds an item into the queue.
+b. Dequeue() - Returns an item from the beginning of the queue andremoves it from the
+queue.
+c. Peek() - Returns an first item from the queue without removing it.
+d. Contains() - Checks whether an item is in the queue or not
+e. Clear() - Removes all the items from the queue
+
+using System;
+using System.Collections.Generic;
+class Program
+{
+static void Main()
+{
+Queue<int> queue = new Queue<int>();
+// 1. Enqueue()
+queue.Enqueue(10);
+queue.Enqueue(20);
+queue.Enqueue(30);
+queue.Enqueue(40);
+Console.WriteLine("Queue:");
+PrintQueue(queue);
+// 2. Dequeue()
+int dequeuedItem = queue.Dequeue();
+Console.WriteLine("\nDequeued Item: {0}", dequeuedItem);
+Console.WriteLine("Queue after dequeuing an item:");
+PrintQueue(queue);
+// 3. Peek()
+int peekedItem = queue.Peek();
+Console.WriteLine("\nPeeked Item: {0}", peekedItem);
+// d. Contains()
+int itemToFind = 30;
+bool containsItem = queue.Contains(itemToFind);
+Console.WriteLine("\nQueue contains {0}?{1}",itemToFind,containsItem);
+itemToFind = 50;
+containsItem = queue.Contains(itemToFind);
+Console.WriteLine("Queue contains {0}? {1}", itemToFind,containsItem);
+// e. Clear()
+queue.Clear();
+Console.WriteLine("\nQueue after clearing all items:");
+PrintQueue(queue);
+}
+static void PrintQueue(Queue<int> queue)
+{
+if (queue.Count > 0)
+foreach (var item in queue)
+{
+Console.WriteLine(item);
+}
+else
+Console.WriteLine("No Element Found ..");
+}
+}

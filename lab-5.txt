@@ -1,0 +1,335 @@
+1. Write a program using method overloading by changing datatype of arguments to perform
+ addition of two integer numbers and two float numbers.
+
+using System;
+class Program
+{
+public static void Main(String[] args)
+{
+Console.Write("Enter 1st Integer number : ");
+int a1 = Convert.ToInt32(Console.ReadLine());
+Console.Write("Enter 2nd Integer number : ");
+int a2 = Convert.ToInt32(Console.ReadLine());
+Console.Write("Enter 1st Double number : ");
+double b1 = Convert.ToDouble(Console.ReadLine());
+Console.Write("Enter 2nd Double number : ");
+double b2 = Convert.ToDouble(Console.ReadLine());
+Console.WriteLine("Addition of Integers = " + Addition(a1, a2));
+Console.WriteLine("Addition of Doubles = " + Addition(b1, b2));
+}
+public static int Addition(int a, int b)
+{
+return a + b;
+}
+public static double Addition(double a, double b)
+{
+return a + b;
+}
+}
+
+
+
+2. Write a program using method overloading by changing number of arguments to calculate area
+ of square and rectangle.
+
+using System;
+class Program
+{
+public static void Main(String[] args)
+{
+Console.WriteLine("Enter length of Square : ");
+double l = Convert.ToDouble(Console.ReadLine());
+Console.WriteLine("Enter Length of Rectangle : ");
+double l2 = Convert.ToDouble(Console.ReadLine());
+Console.WriteLine("Enter Breadth of Recangle : ");
+double b2 = Convert.ToDouble(Console.ReadLine());
+Console.WriteLine("Area of Square = " + Area(l));
+Console.WriteLine("Area of Rectangle = " + Area(l2, b2));
+Console.ReadLine();
+}
+public static double Area(double l)
+{
+return l * l;
+}
+public static double Area(double l, double b)
+{
+return l * b;
+}
+}
+
+
+
+3. Write a programs to Find Area of Square, Rectangle and Circle using Method Overloading.
+
+using System;
+class OverloadingDemo
+{
+public static double Area(double l)
+{
+return Math.Round(l * l, 2);
+}
+public static double Area(double l, double b)
+{
+return Math.Round(l * b, 2);
+}
+public static double Area(int r)
+{
+return Math.Round(Math.PI * r * r, 2);
+}
+public static void Main(String[] args)
+{
+Console.Write("Enter length of Square : ");
+double l = Convert.ToDouble(Console.ReadLine());
+Console.Write("Enter Length of Rectangle : ");
+double l2 = Convert.ToDouble(Console.ReadLine());
+Console.Write("Enter breadth of Recangle : ");
+double b2 = Convert.ToDouble(Console.ReadLine());
+Console.Write("Enter radius of Circle : ");
+int r = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Area of Square = " + Area(l));
+Console.WriteLine("Area of Rectangle = " + Area(l2, b2));
+Console.WriteLine("Area of Circle = " + Area(r));
+Console.ReadLine();
+}
+}
+
+
+
+4. Create a class named RBI with calculateInterest() method. Create another classes HDFC, SBI, ICICI
+ which overrides calculateInterest() method.
+
+using System;
+class RBI
+{
+public virtual void calculateInterest()
+{
+Console.WriteLine("Interest of SBI");
+}
+}
+class HDFC : RBI
+{
+public override void calculateInterest()
+{
+Console.WriteLine("Interest of RBI");
+}
+}
+class SBI : RBI
+{
+public override void calculateInterest()
+{
+Console.WriteLine("Interest of SBI");
+}
+}
+class ICICI : RBI
+{
+public override void calculateInterest()
+{
+Console.WriteLine("Interest of ICICI");
+}
+}
+class Program
+{
+public static void Main(string[] args)
+{
+RBI rbi = new RBI();
+HDFC hdfc = new HDFC();
+SBI sbi = new SBI();
+ICICI icici = new ICICI();
+rbi.calculateInterest();
+hdfc.calculateInterest();
+sbi.calculateInterest();
+icici.calculateInterest();
+}
+}
+
+
+5. Create a class Hospital with HospitalDetails() method. Create another classes Apollo, Wockhardt,
+ Gokul_Superspeciality which overrides HospitalDetails() method.
+
+using System;
+class Hospital
+{
+public virtual void HospitalDetails()
+{
+System.Console.WriteLine("General Hospital Details (Parent Class)");
+}
+}
+class Appolo : Hospital
+{
+override public void HospitalDetails()
+{
+Console.WriteLine("Appolo Hospital Details (Child Class)");
+}
+}
+class Wockhardt : Hospital
+{
+override public void HospitalDetails()
+{
+Console.WriteLine("Wockhardt Hospital Details (Child Class)");
+}
+}
+class Gokul_Superspeciality : Hospital
+{
+override public void HospitalDetails()
+{
+Console.WriteLine("Gokul_Superspeciality Hospital Details (Child
+Class)");
+}
+}
+class Program
+{
+public static void Main(String[] args)
+{
+Hospital hospital = new Hospital();
+Appolo appolo = new Appolo();
+Wockhardt wockhardt = new Wockhardt();
+Gokul_Superspeciality gokul_superspeciality =
+new Gokul_Superspeciality();
+hospital.HospitalDetails();
+appolo.HospitalDetails();
+wockhardt.HospitalDetails();
+gokul_superspeciality.HospitalDetails();
+Console.ReadLine();
+}
+}
+
+
+
+
+6. Write a program to return the factorial from the method using delegate.
+
+using System;
+class Sample
+{
+delegate int MyDel(int num);
+public static int CalculateFactorial(int num)
+{
+int fact = 1;
+for (int i = 2; i <= num; i++)
+{
+fact = fact * i;
+}
+return fact;
+}
+public static void Main()
+{
+int result = 0;
+int number = 0;
+MyDel del = new MyDel(CalculateFactorial);
+Console.Write("Enter the number: ");
+number = Convert.ToInt32(Console.ReadLine());
+result = del(number);
+Console.WriteLine("Factorial of number {0} is: {1}", number, result);
+}
+}
+
+
+7. Write a program to create a delegate called TrafficDel and a class called TrafficSignal with the .
+ following delegate methods.
+Public static void Yellow()
+{
+Console.WriteLine(“Yellow Light Signal To Get Ready”);
+}
+Public static void Green()
+{
+Console.WriteLine(“Green Light Signal To Go”);
+}
+Public static void Red()
+{
+Console.WriteLine(“Red Light Signal To Stop”);
+}
+
+
+using System;
+namespace TrafficDelegateExample
+{
+public delegate void TrafficDel();
+ class TrafficSignal
+{
+public static void Yellow()
+{
+Console.WriteLine("Yellow light signals to get ready");
+}
+public static void Green()
+{
+Console.WriteLine("Green light signals to go");
+}
+public static void Red()
+{
+Console.WriteLine("Red light signals to stop");
+}
+TrafficDel[] td = new TrafficDel[3];
+ public void IdentifySignal()
+{
+td[0] = new TrafficDel(Yellow);
+td[1] = new TrafficDel(Green);
+td[2] = new TrafficDel(Red);
+}
+public void display()
+{
+td[0]();
+td[1]();
+td[2]();
+}
+}
+class Program
+{
+static void Main(string[] args)
+{
+TrafficSignal ts = new TrafficSignal();
+ts.IdentifySignal();
+ts.display();
+}
+}
+}
+
+
+
+8. Write a program to create a delegate calculator to demonstrate the example of generic delegate.
+
+using System;
+using System.Collections.Generic;
+delegate T MyDel<T>(T n1, T n2);
+class Sample
+{
+static int Add(int num1, int num2)
+{
+return (num1 + num2);
+}
+static int Sub(int num1, int num2)
+{
+return (num1 - num2);
+}
+static int Mul(int num1, int num2)
+{
+return (num1 * num2);
+}
+static int Div(int num1, int num2)
+{
+return (num1 / num2);
+}
+static void Main()
+{
+int result = 0;
+int num1 = 0;
+int num2 = 0;
+MyDel<int> del1 = new MyDel<int>(Add);
+MyDel<int> del2 = new MyDel<int>(Sub);
+MyDel<int> del3 = new MyDel<int>(Mul);
+MyDel<int> del4 = new MyDel<int>(Div);
+Console.Write("Enter the value of num1: ");
+num1 = int.Parse(Console.ReadLine());
+Console.Write("Enter the value of num2: ");
+num2 = int.Parse(Console.ReadLine());
+result = del1(num1, num2);
+Console.WriteLine("Addition: " + result);
+result = del2(num1, num2);
+Console.WriteLine("Subtraction: " + result);
+result = del3(num1, num2);
+Console.WriteLine("Multiplication: " + result);
+result = del4(num1, num2);
+Console.WriteLine("Division: " + result);
+}
+}
+
+
